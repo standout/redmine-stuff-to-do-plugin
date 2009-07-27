@@ -1,6 +1,4 @@
-require_dependency 'issue'
-
-# Patches Redmine's Issues dynamically.  Adds a +after_save+ filter.
+# Patches Redmine's Issues dynamically.
 module StuffToDoIssuePatch
   def self.included(base) # :nodoc:
     base.extend(ClassMethods)
@@ -51,9 +49,4 @@ module StuffToDoIssuePatch
     end
   end    
 end
-
-# Add module to Issue
-Issue.send(:include, StuffToDoIssuePatch)
-
-
 

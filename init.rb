@@ -15,10 +15,10 @@ require 'dispatcher'
 
 Dispatcher.to_prepare do
   require_dependency 'project'
+  require_dependency 'issue'
+  Issue.send(:include, StuffToDoIssuePatch)
   Project.send(:include, StuffToDoProjectPatch)
 end
-
-require_dependency 'stuff_to_do_issue_patch.rb'
 
 Redmine::Plugin.register :stuff_to_do_plugin do
   name 'Stuff To Do Plugin'
